@@ -1,0 +1,33 @@
+
+
+services:
+  web:
+    image: akshay29122003/demorepo1:web
+    ports:
+      - "8000:80"
+    
+
+  app:
+    image: akshay29122003/demorepo1:app
+    ports:
+      - "3002:3002"
+    depends_on:
+      - db
+    environment:
+      - PGHOST=localhost
+      - PGUSER=postgres
+      - PGPASSWORD=password123
+      - PGDATABASE=yelp
+      - PGPORT=5432
+
+  db:
+    image: akshay29122003/demorepo1:db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: yelp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+
+
+
