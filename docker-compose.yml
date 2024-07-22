@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     environment:
-      - PGHOST=localhost
+      - PGHOST=db
       - PGUSER=postgres
       - PGPASSWORD=password123
       - PGDATABASE=yelp
