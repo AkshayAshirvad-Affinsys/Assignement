@@ -1,11 +1,10 @@
-
+version: '3.8'
 
 services:
   web:
     image: akshay29122003/demorepo1:web
     ports:
       - "8000:80"
-    
 
   app:
     image: akshay29122003/demorepo1:app
@@ -14,20 +13,24 @@ services:
     depends_on:
       - db
     environment:
-      - PGHOST=db
-      - PGUSER=postgres
-      - PGPASSWORD=password123
-      - PGDATABASE=yelp
-      - PGPORT=5432
+      PGHOST: db
+      PGUSER_FILE: /run/secrets/pg_user_pass
+      PGPASSWORD_FILE: /run/secrets/pg_password_pass
+      PGDATABASE_FILE: /run/secrets/pg_database
+      PGPORT: 5432
+    
 
   db:
     image: akshay29122003/demorepo1:db
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_DB: yelp
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password123
+    
 
-
+secrets:
+  pg_database:
+    external: true
+  pg_user_pass:
+    external: true
+  pg_password_pass:
+    external: true
 
