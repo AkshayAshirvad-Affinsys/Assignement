@@ -1,17 +1,24 @@
 version: '3.8'
 
 services:
-  web:
-    image: akshay29122003/demorepo1:web
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     ports:
       - "8000:80"
     networks:
       - frontend_backend
+    
+    
 
-  app:
-    image: akshay29122003/demorepo1:app
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     ports:
-      - "3002:3002"
+      - "3002:3001"
     depends_on:
       - db
     networks:
@@ -19,11 +26,19 @@ services:
       - backend_db
     environment:
       PGHOST: db
-      PGUSER_FILE: /run/secrets/pg_user_pass
-      PGPASSWORD_FILE: /run/secrets/pg_password_pass
-      PGDATABASE_FILE: /run/secrets/pg_database
       PGPORT: 5432
-    
+      PGUSER_FILE: /run/secrets/user
+      PGPASSWORD_FILE: /run/secrets/password
+      PGDATABASE_FILE: /run/secrets/database  
+    read_only: true
+    cap_add:
+      - NET_ADMIN  
+    cap_drop:
+      - ALL
+    secrets:
+      - user
+      - password
+      - database
 
   db:
     image: akshay29122003/demorepo1:db
@@ -31,20 +46,32 @@ services:
       - backend_db
     ports:
       - "5433:5432"
-    
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER_FILE: /run/secrets/user
+      PGPASSWORD_FILE: /run/secrets/password
+      PGDATABASE_FILE: /run/secrets/database  
+    volumes:
+      - mydb:/var/lib/postgresql/data  
+    secrets:
+      - user
+      - password
+      - database
+
 networks:
   frontend_backend:
     driver: bridge
   backend_db:
     driver: bridge
 
-
+volumes:
+  mydb:
 
 secrets:
-  pg_database:
-    external: true
-  pg_user_pass:
-    external: true
-  pg_password_pass:
-    external: true
-
+  user:
+    file: ./user.txt
+  password:
+    file: ./password.txt
+  database:
+    file: ./database.txt
