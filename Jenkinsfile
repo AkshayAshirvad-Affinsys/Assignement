@@ -1,17 +1,15 @@
-node {
-    environment {
-        NVD_API_KEY = 'bb6e5bca-bdfa-4c27-990e-b5da936d9f9f'  // Replace with your actual NVD API key
-    }
-
-    stage('OWASP-DEPENDENCY-CHECK') {
-        dependencyCheck additionalArguments: ''' 
-            -o './'
-            -s './'
-            -f 'ALL' 
-            --prettyPrint
-            --nvdApiKey $NVD_API_KEY''', 
-            odcInstallation: 'OWASP-DEPENDENCY-CHECK'
-
-        dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+pipeline {
+    agent any
+    
+    stages {
+        
+        
+        stage('Dependency Track Publisher') {
+            steps {
+                withCredentials([string(credentialsId: 'AUTO-API', variable: 'API_KEY')]) {
+                    dependencyTrackPublisher artifact: 'sbom.json', autoCreateProjects: true, projectName: 'CI-analytics-test', projectVersion: '1.0', dependencyTrackApiKey: API_KEY, projectId: '', synchronous: true
+                }
+            }
+        }
     }
 }
