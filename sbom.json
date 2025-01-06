@@ -1,0 +1,530 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:6f2457cb-b2d0-4ac4-b17c-72fb7d601980",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-01-06T07:28:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.58.1"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "672e3f12-6b91-4a89-a06a-aa4ea9fd9b00",
+      "type": "application",
+      "name": ".",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1a9de411-9da9-482e-b093-b162284429f7",
+      "type": "application",
+      "name": "requirements.txt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/api-request-logging@5.9.4",
+      "type": "library",
+      "name": "api-request-logging",
+      "version": "5.9.4",
+      "purl": "pkg:pypi/api-request-logging@5.9.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/auth@5.7.4",
+      "type": "library",
+      "name": "auth",
+      "version": "5.7.4",
+      "purl": "pkg:pypi/auth@5.7.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/boilerplate@5.9.2",
+      "type": "library",
+      "name": "boilerplate",
+      "version": "5.9.2",
+      "purl": "pkg:pypi/boilerplate@5.9.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/boto3@1.28.47",
+      "type": "library",
+      "name": "boto3",
+      "version": "1.28.47",
+      "purl": "pkg:pypi/boto3@1.28.47",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/cache@5.12.1",
+      "type": "library",
+      "name": "cache",
+      "version": "5.12.1",
+      "purl": "pkg:pypi/cache@5.12.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/colorlog@6.7.0",
+      "type": "library",
+      "name": "colorlog",
+      "version": "6.7.0",
+      "purl": "pkg:pypi/colorlog@6.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/django-celery-beat@2.5.0",
+      "type": "library",
+      "name": "django-celery-beat",
+      "version": "2.5.0",
+      "purl": "pkg:pypi/django-celery-beat@2.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/django-celery-results@2.5.1",
+      "type": "library",
+      "name": "django-celery-results",
+      "version": "2.5.1",
+      "purl": "pkg:pypi/django-celery-results@2.5.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/django-redis@5.3.0",
+      "type": "library",
+      "name": "django-redis",
+      "version": "5.3.0",
+      "purl": "pkg:pypi/django-redis@5.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/django-request-logging@0.7.5",
+      "type": "library",
+      "name": "django-request-logging",
+      "version": "0.7.5",
+      "purl": "pkg:pypi/django-request-logging@0.7.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/django@4.2.15",
+      "type": "library",
+      "name": "Django",
+      "version": "4.2.15",
+      "purl": "pkg:pypi/django@4.2.15",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/djangorestframework@3.15.2",
+      "type": "library",
+      "name": "djangorestframework",
+      "version": "3.15.2",
+      "purl": "pkg:pypi/djangorestframework@3.15.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/drf-spectacular@0.25.1",
+      "type": "library",
+      "name": "drf_spectacular",
+      "version": "0.25.1",
+      "purl": "pkg:pypi/drf-spectacular@0.25.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/drf-standardized-errors@0.12.5",
+      "type": "library",
+      "name": "drf_standardized_errors",
+      "version": "0.12.5",
+      "purl": "pkg:pypi/drf-standardized-errors@0.12.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/metadata@5.11.5",
+      "type": "library",
+      "name": "metadata",
+      "version": "5.11.5",
+      "purl": "pkg:pypi/metadata@5.11.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/openpyxl@3.1.2",
+      "type": "library",
+      "name": "openpyxl",
+      "version": "3.1.2",
+      "purl": "pkg:pypi/openpyxl@3.1.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/oracledb@1.4.2",
+      "type": "library",
+      "name": "oracledb",
+      "version": "1.4.2",
+      "purl": "pkg:pypi/oracledb@1.4.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pandas@2.2.2",
+      "type": "library",
+      "name": "pandas",
+      "version": "2.2.2",
+      "purl": "pkg:pypi/pandas@2.2.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/psycopg2-binary@2.9.7",
+      "type": "library",
+      "name": "psycopg2-binary",
+      "version": "2.9.7",
+      "purl": "pkg:pypi/psycopg2-binary@2.9.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/psycopg@3.1.10",
+      "type": "library",
+      "name": "psycopg",
+      "version": "3.1.10",
+      "purl": "pkg:pypi/psycopg@3.1.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pubsub@5.11.5",
+      "type": "library",
+      "name": "pubsub",
+      "version": "5.11.5",
+      "purl": "pkg:pypi/pubsub@5.11.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pygithub@1.57",
+      "type": "library",
+      "name": "pygithub",
+      "version": "1.57",
+      "purl": "pkg:pypi/pygithub@1.57",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/python-dateutil@2.8.2",
+      "type": "library",
+      "name": "python_dateutil",
+      "version": "2.8.2",
+      "purl": "pkg:pypi/python-dateutil@2.8.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pytz@2023.3.post1",
+      "type": "library",
+      "name": "pytz",
+      "version": "2023.3.post1",
+      "purl": "pkg:pypi/pytz@2023.3.post1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/tasks@5.12.4",
+      "type": "library",
+      "name": "tasks",
+      "version": "5.12.4",
+      "purl": "pkg:pypi/tasks@5.12.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/xhtml2pdf@0.2.11",
+      "type": "library",
+      "name": "xhtml2pdf",
+      "version": "0.2.11",
+      "purl": "pkg:pypi/xhtml2pdf@0.2.11",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1a9de411-9da9-482e-b093-b162284429f7",
+      "dependsOn": [
+        "pkg:pypi/api-request-logging@5.9.4",
+        "pkg:pypi/auth@5.7.4",
+        "pkg:pypi/boilerplate@5.9.2",
+        "pkg:pypi/boto3@1.28.47",
+        "pkg:pypi/cache@5.12.1",
+        "pkg:pypi/colorlog@6.7.0",
+        "pkg:pypi/django-celery-beat@2.5.0",
+        "pkg:pypi/django-celery-results@2.5.1",
+        "pkg:pypi/django-redis@5.3.0",
+        "pkg:pypi/django-request-logging@0.7.5",
+        "pkg:pypi/django@4.2.15",
+        "pkg:pypi/djangorestframework@3.15.2",
+        "pkg:pypi/drf-spectacular@0.25.1",
+        "pkg:pypi/drf-standardized-errors@0.12.5",
+        "pkg:pypi/metadata@5.11.5",
+        "pkg:pypi/openpyxl@3.1.2",
+        "pkg:pypi/oracledb@1.4.2",
+        "pkg:pypi/pandas@2.2.2",
+        "pkg:pypi/psycopg2-binary@2.9.7",
+        "pkg:pypi/psycopg@3.1.10",
+        "pkg:pypi/pubsub@5.11.5",
+        "pkg:pypi/pygithub@1.57",
+        "pkg:pypi/python-dateutil@2.8.2",
+        "pkg:pypi/pytz@2023.3.post1",
+        "pkg:pypi/tasks@5.12.4",
+        "pkg:pypi/xhtml2pdf@0.2.11"
+      ]
+    },
+    {
+      "ref": "672e3f12-6b91-4a89-a06a-aa4ea9fd9b00",
+      "dependsOn": [
+        "1a9de411-9da9-482e-b093-b162284429f7"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/api-request-logging@5.9.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/auth@5.7.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/boilerplate@5.9.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/boto3@1.28.47",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/cache@5.12.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/colorlog@6.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django-celery-beat@2.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django-celery-results@2.5.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django-redis@5.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django-request-logging@0.7.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django@4.2.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/djangorestframework@3.15.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/drf-spectacular@0.25.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/drf-standardized-errors@0.12.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/metadata@5.11.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/openpyxl@3.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/oracledb@1.4.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pandas@2.2.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/psycopg2-binary@2.9.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/psycopg@3.1.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pubsub@5.11.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pygithub@1.57",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/python-dateutil@2.8.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pytz@2023.3.post1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/tasks@5.12.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/xhtml2pdf@0.2.11",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
