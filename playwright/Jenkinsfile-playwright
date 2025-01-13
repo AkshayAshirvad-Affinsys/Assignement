@@ -8,12 +8,13 @@ node("kaniko-agent") {
     // Step 2: Run Python scripts inside the container
     stage('Run Playwright Tests') {
         container('playwright') {
-            catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
-                sh '''
-                    pytest tests/** --alluredir=allure-results
-                '''
+            withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                    sh '''
+                        pytest tests/** --alluredir=allure-results
+                    '''
+                }
             }
-            
         }
     }
 
