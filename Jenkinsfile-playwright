@@ -1,5 +1,5 @@
 node("kaniko-agent") {
-    try {
+    
         // Step 1: Clone the repository
         stage('Checkout SCM') {
             checkout scm
@@ -24,16 +24,10 @@ node("kaniko-agent") {
                 
             }
         }
-
-
-
-
-    } catch (Exception e) {
-        echo "An error occurred: ${e.getMessage()}"
-        currentBuild.result = 'FAILURE'
-        throw e
-    } finally {
-        echo "Pipeline completed."
-    }
 }
+
+
+
+
+     
 
