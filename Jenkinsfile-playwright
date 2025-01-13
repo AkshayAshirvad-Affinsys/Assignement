@@ -22,7 +22,7 @@ node("kaniko-agent") {
     stage('Generate Report') {
         container('playwright') {
             sh '''
-                python3 allure_reports-push_scripts
+                python3 allure_reports-push_script.py
             '''
         }
     }
