@@ -6,15 +6,28 @@ node("kaniko-agent") {
         }
 
         // Step 2: Run Python scripts inside the container
-        stage('Run Python Scripts') {
+        stage('Run Playwright Tests') {
             container('playwright') {
                 withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
                     sh '''
-                        pytest  test_playwright_demo.py --alluredir=allure-results
+                        pytest  tests/** --alluredir=allure-results
                     '''
                 }
             }
         }
+
+        stage('Generate Report') {
+            container('playwright') {
+                sh '''
+                    python3 allure_reports-push_scripts
+                '''
+                
+            }
+        }
+
+
+
+
     } catch (Exception e) {
         echo "An error occurred: ${e.getMessage()}"
         currentBuild.result = 'FAILURE'
