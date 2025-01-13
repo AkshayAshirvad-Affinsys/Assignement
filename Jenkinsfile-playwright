@@ -5,23 +5,6 @@ node("kaniko-agent") {
             checkout scm
         }
 
-        // Extract repository details
-        stage('Extract Repository Details') {
-            script {
-                // Extract repository URL and branch name from SCM
-                def repoUrl = scm.getUserRemoteConfigs()[0].getUrl()
-                def branchName = scm.getBranches()[0].getName().replace('*/', '')
-
-                // Debug logs to verify extracted details
-                echo "Repository URL: ${repoUrl}"
-                echo "Branch: ${branchName}"
-
-                // Pass these details to the next stage
-                env.REPO_URL = repoUrl
-                env.BRANCH_NAME = branchName
-            }
-        }
-
         // Clone the repository using Python script
         stage('Repo Clone') {
             container('playwright') {
@@ -29,25 +12,21 @@ node("kaniko-agent") {
                     script {
                         echo "Cloning repository with provided details..."
                         sh '''
-                            python3 ./playwright/allure_repoclone.py \
-                                --repo_url=${REPO_URL} \
-                                --branch=${BRANCH_NAME} \
+                            python3 /playwright/allure_repoclone.py \
+                                --repo_url=${GIT_URL} \
+                                --branch=${GIT_BRANCH} \
                                 --pat=$GIT_PASSWD
                         '''
                     }
                 }
             }
         }
-
     } catch (Exception e) {
-        // Handle any exceptions in the pipeline
         echo "An error occurred: ${e.getMessage()}"
         currentBuild.result = 'FAILURE'
         throw e
     } finally {
-        // Cleanup or final steps if necessary
         echo "Pipeline completed."
     }
 }
-
 
