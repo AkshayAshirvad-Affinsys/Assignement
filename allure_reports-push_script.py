@@ -84,7 +84,7 @@ print(json_prettier_response_body)
 print("------------------GENERATE-REPORT------------------")
 execution_name = 'execution from my script'
 execution_from = 'http://google.com'
-execution_type = 'teamcity'
+execution_type = 'jenkins'
 response = session.get (allure_server + '/allure-docker-service/generate-report?project_id=' + project_id + '&execution_name=' + execution_name + '&execution_from=' + execution_from + '&execution_type=' + execution_type, headers=headers, verify=ssl_verification)
 print("STATUS CODE:")
 print(response.status_code)
