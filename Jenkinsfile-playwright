@@ -1,4 +1,3 @@
-
 node("kaniko-agent") {
     try {
         // Checkout the repository
@@ -29,12 +28,12 @@ node("kaniko-agent") {
                 withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
                     script {
                         echo "Cloning repository with provided details..."
-                        sh """
+                        sh '''
                             python3 ./playwright/allure_repoclone.py \
-                                --repo_url=${env.REPO_URL} \
-                                --branch=${env.BRANCH_NAME} \
+                                --repo_url=${REPO_URL} \
+                                --branch=${BRANCH_NAME} \
                                 --pat=$GIT_PASSWD
-                        """
+                        '''
                     }
                 }
             }
@@ -50,4 +49,5 @@ node("kaniko-agent") {
         echo "Pipeline completed."
     }
 }
+
 
