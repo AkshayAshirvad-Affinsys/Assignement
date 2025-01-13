@@ -1,0 +1,14 @@
+node("kaniko-agent") {
+    stage('Repo Clone') {
+    container('playwright'){
+        withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
+            echo "Repository URL: ${env.GIT_URL}"
+            echo "Branch: ${env.GIT_BRANCH}"
+            sh '''
+               python3 ./playwright/allure_repoclone.py
+            '''
+
+        }        
+    }
+    }
+}
