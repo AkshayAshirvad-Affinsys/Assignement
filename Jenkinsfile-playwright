@@ -29,7 +29,7 @@ node("kaniko-agent") {
                     script {
                         echo "Cloning repository with provided details..."
                         sh '''
-                            python3 /playwright/allure_repoclone.py \
+                            python3 ./playwright/allure_repoclone.py \
                                 --repo_url=${REPO_URL} \
                                 --branch=${BRANCH_NAME} \
                                 --pat=$GIT_PASSWD
