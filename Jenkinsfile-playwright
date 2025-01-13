@@ -1,15 +1,53 @@
-node("kaniko-agent") {
-    checkout scm
-    stage('Repo Clone') {
-    container('playwright'){
-        withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
-            echo "Repository URL: ${env.GIT_URL}"
-            echo "Branch: ${env.GIT_BRANCH}"
-            sh '''
-               python3 ./playwright/allure_repoclone.py
-            '''
 
-        }        
-    }
+node("kaniko-agent") {
+    try {
+        // Checkout the repository
+        stage('Checkout SCM') {
+            checkout scm
+        }
+
+        // Extract repository details
+        stage('Extract Repository Details') {
+            script {
+                // Extract repository URL and branch name from SCM
+                def repoUrl = scm.getUserRemoteConfigs()[0].getUrl()
+                def branchName = scm.getBranches()[0].getName().replace('*/', '')
+
+                // Debug logs to verify extracted details
+                echo "Repository URL: ${repoUrl}"
+                echo "Branch: ${branchName}"
+
+                // Pass these details to the next stage
+                env.REPO_URL = repoUrl
+                env.BRANCH_NAME = branchName
+            }
+        }
+
+        // Clone the repository using Python script
+        stage('Repo Clone') {
+            container('playwright') {
+                withCredentials([usernamePassword(credentialsId: 'Pratham-GH', usernameVariable: 'GIT_UNAME', passwordVariable: 'GIT_PASSWD')]) {
+                    script {
+                        echo "Cloning repository with provided details..."
+                        sh """
+                            python3 ./playwright/allure_repoclone.py \
+                                --repo_url=${env.REPO_URL} \
+                                --branch=${env.BRANCH_NAME} \
+                                --pat=$GIT_PASSWD
+                        """
+                    }
+                }
+            }
+        }
+
+    } catch (Exception e) {
+        // Handle any exceptions in the pipeline
+        echo "An error occurred: ${e.getMessage()}"
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        // Cleanup or final steps if necessary
+        echo "Pipeline completed."
     }
 }
+
