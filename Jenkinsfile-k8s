@@ -1,0 +1,30 @@
+pipeline {
+    agent {
+        label 'playwright-template' // Always use the playwright pod template
+    }
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                    sh '''
+                        pytest tests/** --alluredir=allure-results
+                    '''
+                }
+            }
+        }
+
+        stage('Generate Report') {
+            steps {
+                sh '''
+                    python3 allure_reports-push_script.py
+                '''
+            }
+        }
+    }
+}
