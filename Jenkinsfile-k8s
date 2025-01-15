@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'playwright-label' // Always use the playwright pod template
+        label 'playwright-template' // Always use the playwright pod template
     }
     stages {
         stage('Checkout SCM') {
