@@ -21,7 +21,7 @@ node("kaniko-agent") {
     stage('Generate Report') {
         container('playwright') {
             sh '''
-                python3 Devops/allure_reports-push_script.py
+                python3 allure_reports-push_script.py
             '''
         }
     }
