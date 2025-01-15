@@ -1,4 +1,4 @@
-node('playwright-template') {
+node('playwright-agent') {
     stage('Checkout SCM') {
         checkout scm
     }
