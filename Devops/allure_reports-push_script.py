@@ -6,11 +6,11 @@ allure_results_directory = '/allure-results'
 #allure_server = 'http://localhost:5050'
 allure_server = 'https://allure.bankbuddy.me/allure-api'
 # Project ID according to existent projects in your Allure container - Check endpoint for project creation >> `[POST]/projects`
-project_id = 'bud-core-bot'
+project_id = 'default'
 #project_id = 'my-project-id'
 # Set security_user & security_password according to Allure container configuration
-security_user='my_username'
-security_password='my_password'
+security_user='allure_admin'
+security_password='NVLkoYn6SzDtCgyqWy59'
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 results_directory = current_directory + allure_results_directory

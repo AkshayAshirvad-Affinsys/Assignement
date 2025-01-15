@@ -1,11 +1,11 @@
 node("kaniko-agent") {
 
-    // Step 1: Clone the repository
+    
     stage('Checkout SCM') {
         checkout scm
     }
 
-    // Step 2: Run Python scripts inside the container
+    
     stage('Run Playwright Tests') {
         container('playwright') {
             catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
@@ -17,11 +17,11 @@ node("kaniko-agent") {
         }
     }
 
-    // Step 3: Generate Report
+    
     stage('Generate Report') {
         container('playwright') {
             sh '''
-                python3 allure_reports-push_script.py
+                python3 Devops/allure_reports-push_script.py
             '''
         }
     }
